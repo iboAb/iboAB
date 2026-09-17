@@ -1,0 +1,55 @@
+<svg width="900" height="240" viewBox="0 0 900 240" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1220"/>
+      <stop offset="0.55" stop-color="#111827"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="name" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="0.5" stop-color="#67e8f9"/>
+      <stop offset="1" stop-color="#60a5fa"/>
+    </linearGradient>
+    <filter id="softGlow" x="-40%" y="-80%" width="180%" height="260%">
+      <feGaussianBlur stdDeviation="5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      .name { font-family: Arial, Helvetica, sans-serif; font-size: 58px; font-weight: 700; letter-spacing: 2px; }
+      .sub { font-family: Arial, Helvetica, sans-serif; font-size: 16px; letter-spacing: 3px; fill:#94a3b8; }
+      .dot { animation: pulse 2.2s ease-in-out infinite; }
+      .nameGlow { animation: glow 3s ease-in-out infinite; }
+      .draw { stroke-dasharray: 430; stroke-dashoffset: 430; animation: draw 1.6s ease-out forwards; }
+      .fade { animation: fade 1.2s ease-out forwards; }
+      @keyframes pulse { 0%,100%{opacity:.25;transform:scale(1)} 50%{opacity:1;transform:scale(1.7)} }
+      @keyframes glow { 0%,100%{opacity:.92} 50%{opacity:1} }
+      @keyframes draw { to{stroke-dashoffset:0} }
+      @keyframes fade { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="900" height="240" rx="18" fill="url(#bg)"/>
+
+  <!-- subtle technical background -->
+  <path d="M55 48 H175 M725 48 H845 M55 192 H220 M680 192 H845"
+        stroke="#334155" stroke-width="1" opacity=".45"/>
+  <path d="M95 75 V165 M805 75 V165"
+        stroke="#334155" stroke-width="1" opacity=".3"/>
+  <circle cx="95" cy="48" r="3" fill="#67e8f9" class="dot"/>
+  <circle cx="805" cy="48" r="3" fill="#60a5fa" class="dot"/>
+  <circle cx="95" cy="192" r="2" fill="#60a5fa" class="dot"/>
+  <circle cx="805" cy="192" r="2" fill="#67e8f9" class="dot"/>
+
+  <text x="450" y="108" text-anchor="middle" class="name nameGlow fade"
+        fill="url(#name)" filter="url(#softGlow)">EBRAHIM ABADYAR</text>
+
+  <text x="450" y="143" text-anchor="middle" class="sub fade"
+        style="animation-delay:.25s">SOFTWAREENTWICKLUNG · SYSTEMINTEGRATION</text>
+
+  <!-- animated accent, no cursor -->
+  <line x1="270" y1="169" x2="630" y2="169"
+        stroke="url(#name)" stroke-width="2" stroke-linecap="round"
+        class="draw"/>
+
+  <circle cx="450" cy="169" r="3.5" fill="#67e8f9" filter="url(#softGlow)" class="dot"/>
+</svg>
